@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='timeApp'>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+</head>
+<body ng-controller='timeController'>
+<div>
+	<h1>Module 2 Homework</h1>
+	<h2>{{ 'The current date is: ' + currentTime }}</h2>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script type="text/javascript">
+	var timeApp = angular.module('timeApp', [])
+	var time = new Date(Date.now()).toISOString()
+	
+	timeApp.constant('currentTime', {time: time})
+	timeApp.controller('timeController', [
+		'$scope', 'currentTime',
+		function($scope, currentTime) {
+			$scope.currentTime = currentTime.time
+		}])
+</script>
+</body>
+</html>
