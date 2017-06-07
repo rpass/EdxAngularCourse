@@ -1,7 +1,12 @@
 app.controller('menuController', [
 	'$scope',
 	function($scope){
-		$scope.model = {title: 'Our Menu'};
+		$scope.model = {
+			title: 'Our Menu',
+			mainDish: {
+				name: "None Selected",
+				price: "$0.00"
+			}};
 		$scope.changeMainDish = function(item){
 			$scope.model.mainDish = item;
 		};
